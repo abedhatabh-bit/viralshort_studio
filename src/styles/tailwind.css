@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #000000; /* black */
+    --color-foreground: #FFFFFF; /* white */
+    --color-border: rgba(57, 255, 20, 0.6); /* acid-green-60 */
+    --color-input: #111111; /* gray-900 */
+    --color-ring: #39FF14; /* acid-green */
+    
+    /* Card Colors */
+    --color-card: #111111; /* gray-900 */
+    --color-card-foreground: #FFFFFF; /* white */
+    
+    /* Popover Colors */
+    --color-popover: #111111; /* gray-900 */
+    --color-popover-foreground: #FFFFFF; /* white */
+    
+    /* Muted Colors */
+    --color-muted: #111111; /* gray-900 */
+    --color-muted-foreground: #CCCCCC; /* gray-300 */
+    
+    /* Primary Colors */
+    --color-primary: #39FF14; /* acid-green */
+    --color-primary-foreground: #000000; /* black */
+    
+    /* Secondary Colors */
+    --color-secondary: #FF00FF; /* magenta */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #00FFFF; /* cyan */
+    --color-accent-foreground: #000000; /* black */
+    
+    /* Success Colors */
+    --color-success: #39FF14; /* acid-green */
+    --color-success-foreground: #000000; /* black */
+    
+    /* Warning Colors */
+    --color-warning: #FFD700; /* gold */
+    --color-warning-foreground: #000000; /* black */
+    
+    /* Error/Destructive Colors */
+    --color-error: #FF073A; /* neon-red */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #FF073A; /* neon-red */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Neon Glow Effects */
+  .neon-glow-primary {
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+  }
+  
+  .neon-glow-secondary {
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+  }
+  
+  .neon-glow-accent {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+  }
+  
+  .neon-glow-intense {
+    box-shadow: 0 0 24px rgba(57, 255, 20, 0.4);
+  }
+  
+  /* Surface Elevation */
+  .surface-elevation {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Pulse Animation for CTAs */
+  .pulse-cta {
+    animation: pulse-neon 857ms infinite;
+  }
+  
+  @keyframes pulse-neon {
+    0%, 100% {
+      box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 16px rgba(57, 255, 20, 0.6);
+    }
+  }
+  
+  /* Glitch Effect */
+  .glitch-effect {
+    animation: glitch 3000ms infinite;
+  }
+  
+  @keyframes glitch {
+    0%, 98% {
+      transform: translateX(0);
+    }
+    99% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(-2px);
+    }
+  }
+  
+  /* Smooth Transitions */
+  .transition-neon {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-smooth {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .pulse-cta,
+  .glitch-effect {
+    animation: none;
+  }
+  
+  .transition-neon,
+  .transition-smooth {
+    transition: none;
+  }
+}
